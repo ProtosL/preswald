@@ -17,7 +17,7 @@ from .components import (
     workflow_dag,
     button,
     image,
-    spinner
+    spinner,
 )
 from .data import connect, get_df, query
 from .workflow import RetryPolicy, Workflow, WorkflowAnalyzer
