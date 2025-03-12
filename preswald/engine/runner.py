@@ -210,12 +210,15 @@ class ScriptRunner:
             logger.warning("[ScriptRunner] Not running or no script path set")
             return
 
-        logger.info(f"[ScriptRunner] Running script: {self.script_path} (run #{self._run_count})")
+        logger.info(
+            f"[ScriptRunner] Running script: {self.script_path} (run #{self._run_count})"
+        )
 
         try:
             from .service import PreswaldService
+
             service = PreswaldService.get_instance()
-            
+
             # Clear previous components before execution
             service.clear_components()
 
@@ -227,7 +230,7 @@ class ScriptRunner:
             # Capture script output
             with self._redirect_stdout():
                 # Execute script
-                with open(self.script_path, "r", encoding='utf-8') as f:
+                with open(self.script_path, "r", encoding="utf-8") as f:
                     # Save current cwd
                     current_working_dir = os.getcwd()
                     # Execute script with script directory set as cwd
